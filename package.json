@@ -1,0 +1,39 @@
+{
+  "name": "radioradio",
+  "version": "0.1.0",
+  "description": "A very basic JavaScript PubSub library.",
+  "main": "dist/radioradio.js",
+  "directories": {
+    "example": "./example"
+  },
+  "scripts": {
+  	"build": "./scripts/build.js; ./scripts/stats.js",
+  	"stats": "./scripts/stats.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgarber623/RadioRadio.git"
+  },
+  "keywords": [
+    "javascript",
+    "pubsub"
+  ],
+  "author": {
+    "name": "Jason Garber",
+    "email": "jason@sixtwothree.org",
+    "url": "https://sixtwothree.org"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jgarber623/RadioRadio/issues"
+  },
+  "homepage": "https://github.com/jgarber623/RadioRadio",
+  "devDependencies": {
+    "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
+    "comma-number": "^1.1.0",
+    "gzip-size": "^3.0.0",
+    "uglify-js": "^2.6.2"
+  }
+}

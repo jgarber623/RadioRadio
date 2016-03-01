@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>RadioRadio: Example</title>
+</head>
+<body>
+
+	<h1>Showing <span>all</span> items</h1>
+
+	<button data-show="all">Show all items</button>
+	<button data-show="even">Show even items</button>
+	<button data-show="odd">Show odd items</button>
+
+	<ul id="list">
+		<li class="odd">Item #1</li>
+		<li class="even">Item #2</li>
+		<li class="odd">Item #3</li>
+		<li class="even">Item #4</li>
+		<li class="odd">Item #5</li>
+		<li class="even">Item #6</li>
+	</ul>
+
+	<script src="../src/radioradio.js"></script>
+	<script>
+		if (window.addEventListener && document.querySelector) {
+			var $title = document.querySelector('h1 span'),
+				$buttons = document.querySelectorAll('button'),
+				$listItems = document.querySelectorAll('#list li');
+
+			var handleClick = function(event) {
+				event.preventDefault();
+
+				RadioRadio.publish('update', {
+					show: event.currentTarget.getAttribute('data-show')
+				});
+			};
+
+			var updateList = function(data) {
+				for (var i = 0, j = $listItems.length; i < j; i++) {
+					var $listItem = $listItems[i];
+
+					$listItem.style.display = (data.show === 'all' || $listItem.classList.contains(data.show)) ? 'list-item' : 'none';
+				}
+			};
+
+			var updateTitle = function(data) {
+				$title.innerHTML = data.show;
+			};
+
+			for (var i = 0, j = $buttons.length; i < j; i++) {
+				$buttons[i].addEventListener('click', handleClick);
+			}
+
+			RadioRadio.subscribe('update', function(data) {
+				updateTitle(data);
+				updateList(data);
+			});
+		}
+	</script>
+
+</body>
+</html>
