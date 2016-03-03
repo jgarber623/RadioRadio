@@ -15,7 +15,7 @@ var colors = require('colors'),
 		' *  RadioRadio may be freely distributed under the ' + pkg.license + ' license.\n' +
 		' */\n';
 
-exec('uglifyjs src/radioradio.js --beautify "indent-level=2" --preamble "' + preamble + '" --output dist/radioradio.js');
-exec('uglifyjs src/radioradio.js --compress --mangle --preamble "' + preamble + '" --output dist/radioradio.min.js');
+exec('$(npm bin)/uglifyjs src/radioradio.js --beautify "indent-level=2" --preamble "' + preamble + '" --output dist/radioradio.js');
+exec('$(npm bin)/uglifyjs src/radioradio.js --compress --mangle --preamble "' + preamble + '" --output dist/radioradio.min.js');
 
 console.log(colors.green('RadioRadio %s built successfully!'), pkg.version);
