@@ -5,7 +5,7 @@
  *
  *  Source code available at: https://github.com/jgarber623/RadioRadio
  *
- *  (c) 2015-present Jason Garber (http://sixtwothree.org)
+ *  (c) 2015-present Jason Garber (https://sixtwothree.org)
  *
  *  RadioRadio may be freely distributed under the MIT license.
  */
@@ -21,9 +21,22 @@
 })(this, function() {
   "use strict";
   var topics = {};
+  var filterTopics = function(topic) {
+    return Object.keys(topics).filter(function(key) {
+      return key.match(new RegExp("^" + topic + "(?:.[a-zA-Z0-9]*)?$"));
+    });
+  };
   return {
     publish: function(topic, data) {
-      return topics.hasOwnProperty(topic) ? topics[topic](data) : false;
+      var queue = filterTopics(topic);
+      if (queue.length) {
+        queue.forEach(function(element) {
+          topics[element](data);
+        });
+        return queue;
+      } else {
+        return false;
+      }
     },
     subscribe: function(topic, subscriber) {
       if (typeof subscriber === "function") {

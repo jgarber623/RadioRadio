@@ -4,6 +4,12 @@
 	<meta charset="utf-8">
 
 	<title>RadioRadio: Example</title>
+
+	<style>
+		[aria-hidden] {
+			display: none !important;
+		}
+	</style>
 </head>
 <body>
 
@@ -41,7 +47,7 @@
 				for (var i = 0, j = $listItems.length; i < j; i++) {
 					var $listItem = $listItems[i];
 
-					$listItem.style.display = (data.show === 'all' || $listItem.classList.contains(data.show)) ? 'list-item' : 'none';
+					$listItem[(data.show === 'all' || $listItem.classList.contains(data.show)) ? 'removeAttribute' : 'setAttribute']('aria-hidden', true);
 				}
 			};
 
@@ -53,10 +59,8 @@
 				$buttons[i].addEventListener('click', handleClick);
 			}
 
-			RadioRadio.subscribe('update', function(data) {
-				updateTitle(data);
-				updateList(data);
-			});
+			RadioRadio.subscribe('update.title', updateTitle);
+			RadioRadio.subscribe('update.list', updateList);
 		}
 	</script>
 

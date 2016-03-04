@@ -7,9 +7,9 @@
     "example": "./example"
   },
   "scripts": {
-  	"build": "./scripts/build.js; ./scripts/stats.js",
-  	"stats": "./scripts/stats.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./scripts/build.js; ./scripts/stats.js",
+    "stats": "./scripts/stats.js",
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "colors": "^1.1.2",
     "comma-number": "^1.1.0",
     "gzip-size": "^3.0.0",
+    "jasmine": "^2.4.1",
     "uglify-js": "^2.6.2"
   }
 }

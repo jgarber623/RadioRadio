@@ -11,9 +11,25 @@
 
 	var topics = {};
 
+	var filterTopics = function(topic) {
+		return Object.keys(topics).filter(function(key) {
+			return key.match(new RegExp('^' + topic + '(?:\.[a-zA-Z0-9]*)?$'));
+		});
+	};
+
 	return {
 		publish: function(topic, data) {
-			return topics.hasOwnProperty(topic) ? topics[topic](data) : false;
+			var queue = filterTopics(topic);
+
+			if (queue.length) {
+				queue.forEach(function(element) {
+					topics[element](data);
+				});
+
+				return queue;
+			} else {
+				return false;
+			}
 		},
 
 		subscribe: function(topic, subscriber) {
