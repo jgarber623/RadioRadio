@@ -43,29 +43,33 @@ Adding RadioRadio to your project is easy! You've got a couple options:
 
 ## Usage
 
-### `RadioRadio.subscribe(topic, subscriber)`
+### Subscribing
 
+```js
+RadioRadio.subscribe(topic, subscriber);
+```
+
+**Accepts:** `topic` (String) and `subscriber` (Function)
 **Returns:** String or `false`
 
-#### `topic`
-
-**Type:** String
+#### The `topic` argument
 
 Topics may be strings of any length (e.g. `foo`) and may be namespaced using a `.` as a separator (e.g. `foo.bar`).
 
-#### `subscriber`
-
-**Type:** Function
+#### The `subscriber` argument
 
 A function to execute when `topic` is published. Subscribers accept a single argument (`data`) passed on from the `publish` method.
 
-### `RadioRadio.publish(topic, data)`
+### Publishing
 
+```js
+RadioRadio.publish(topic, data);
+```
+
+**Accepts:** `topic` (String) and `data` (Object)
 **Returns:** Array or `false`
 
-#### `topic`
-
-**Type:** String
+#### The `topic` argument
 
 The topic to which you wish to publish. When using namespaced topics (e.g. `foo.bar`), you may publish to a single topic:
 
@@ -81,27 +85,26 @@ RadioRadio.publish('foo', data);
 
 In the latter case, publishing to the namespace `foo` will publish to _all_ topics within that namespace (e.g. `foo.bar`, `foo.biz`, `foo.baz`).
 
-#### `data`
-
-**Type:** Object
+#### The `data` argument
 
 The data to pass along to subscribers. Most usefully an Object, `data` _could_ be anything so long as the topic's subscriber functions are prepared to handle it.
 
-### `RadioRadio.unsubscribe(topic)`
+### Unsubscribing
 
+```js
+RadioRadio.unsubscribe(topic);
+```
+
+**Accepts:** `topic` (String)
 **Returns:** `true`
 
-#### `topic`
+#### The `topic` argument
 
-**Type:** String
-
-The topic from which you wish to unsubscribe. Calling this method removes `topic` from the list of subscribed topics. Subsequent calls to publish to that topic will fail silently.
+The topic from which you wish to unsubscribe. Calling this method removes `topic` from the stored list of subscribed topics. Subsequent calls to publish to that topic will fail silently, returning `false`.
 
 ### Example
 
-TODO
-
-You can see the above in action in [the included example file](./example/index.html).
+For a full-featured RadioRadio demonstration, check out [the included example file](./example/index.html).
 
 
 ## Browser Support
