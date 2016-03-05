@@ -1,31 +1,31 @@
 {
-	"name": "radioradio",
-	"version": "0.1.0",
-	"homepage": "https://github.com/jgarber623/RadioRadio",
-	"authors": [
-		"Jason Garber <jason@sixtwothree.org> (http://sixtwothree.org)"
-	],
-	"description": "A very basic JavaScript PubSub library.",
-	"main": "dist/radioradio.js",
-	"moduleType": [
-		"amd",
-		"globals"
-	],
-	"keywords": [
-		"javascript",
-		"pubsub"
-	],
-	"license": "MIT",
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"scripts",
-		"spec",
-		"CONTRIBUTING.md"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/jgarber623/RadioRadio.git"
-	}
+  "name": "radioradio",
+  "version": "0.1.0",
+  "homepage": "https://github.com/jgarber623/RadioRadio",
+  "authors": [
+    "Jason Garber <jason@sixtwothree.org> (http://sixtwothree.org)"
+  ],
+  "description": "A very basic JavaScript PubSub library.",
+  "main": "dist/radioradio.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "javascript",
+    "pubsub"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "scripts",
+    "spec",
+    "CONTRIBUTING.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jgarber623/RadioRadio.git"
+  }
 }
