@@ -1,6 +1,6 @@
 {
   "name": "radioradio",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A very basic JavaScript PubSub library.",
   "main": "dist/radioradio.js",
   "directories": {

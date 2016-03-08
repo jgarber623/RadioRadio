@@ -1,5 +1,5 @@
 /*!
- *  RadioRadio 0.1.0
+ *  RadioRadio 0.1.1
  *
  *  A very basic JavaScript PubSub library.
  *
@@ -23,7 +23,7 @@
   var topics = {};
   var filterTopics = function(topic) {
     return Object.keys(topics).filter(function(key) {
-      return key.match(new RegExp("^" + topic + "(?:.[a-zA-Z0-9]*)?$"));
+      return key.match(new RegExp("^" + topic + "(?:.[a-zA-Z0-9]*)*?$"));
     });
   };
   return {
