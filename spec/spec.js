@@ -9,45 +9,51 @@ describe('RadioRadio', () => {
 		stubTopics.forEach(topic => RadioRadio.unsubscribe(topic));
 	});
 
-	it('should not subscribe to a topic when no subscriber is given.', () => {
-		var topic = RadioRadio.subscribe('foo');
+	describe('#subscribe', () => {
+		it('should not subscribe to a topic when no subscriber is given.', () => {
+			var topic = RadioRadio.subscribe('foo');
 
-		expect(topic).toBe(false);
-	});
-
-	it('should subscribe to a topic.', () => {
-		var topic = RadioRadio.subscribe('foo', stubSubscriber);
-
-		expect(topic).toBe('foo');
-	});
-
-	it('should subscribe to a namespaced topic.', () => {
-		var topic = RadioRadio.subscribe('foo.bar', stubSubscriber);
-
-		expect(topic).toBe('foo.bar');
-	});
-
-	it('should not publish to a topic when topic is not set.', () => {
-		expect(RadioRadio.publish('foo', stubData)).toBe(false);
-	});
-
-	it('should publish to a topic.', () => {
-		RadioRadio.subscribe('foo', stubSubscriber);
-
-		expect(RadioRadio.publish('foo', stubData)).toEqual(['foo']);
-	});
-
-	it('should publish to namespaced topics.', () => {
-		stubTopics.forEach(topic => {
-			RadioRadio.subscribe(topic, stubSubscriber);
+			expect(topic).toBe(false);
 		});
 
-		expect(RadioRadio.publish('foo', stubData)).toEqual(stubTopics);
+		it('should subscribe to a topic.', () => {
+			var topic = RadioRadio.subscribe('foo', stubSubscriber);
+
+			expect(topic).toBe('foo');
+		});
+
+		it('should subscribe to a namespaced topic.', () => {
+			var topic = RadioRadio.subscribe('foo.bar', stubSubscriber);
+
+			expect(topic).toBe('foo.bar');
+		});
 	});
 
-	it('should unsubscribe from a topic.', () => {
-		RadioRadio.subscribe('foo', stubSubscriber);
+	describe('#publish', () => {
+		it('should not publish to a topic when topic is not set.', () => {
+			expect(RadioRadio.publish('foo', stubData)).toBe(false);
+		});
 
-		expect(RadioRadio.unsubscribe('foo')).toBe(true);
+		it('should publish to a topic.', () => {
+			RadioRadio.subscribe('foo', stubSubscriber);
+
+			expect(RadioRadio.publish('foo', stubData)).toEqual(['foo']);
+		});
+
+		it('should publish to namespaced topics.', () => {
+			stubTopics.forEach(topic => {
+				RadioRadio.subscribe(topic, stubSubscriber);
+			});
+
+			expect(RadioRadio.publish('foo', stubData)).toEqual(stubTopics);
+		});
+	});
+
+	describe('#unsubscribe', () => {
+		it('should unsubscribe from a topic.', () => {
+			RadioRadio.subscribe('foo', stubSubscriber);
+
+			expect(RadioRadio.unsubscribe('foo')).toBe(true);
+		});
 	});
 });
