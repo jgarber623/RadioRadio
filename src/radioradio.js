@@ -13,8 +13,12 @@
 
 	var filterTopics = function(topic) {
 		return Object.keys(topics).filter(function(key) {
-			return key.match(new RegExp('^' + topic + '(?:\.[a-zA-Z0-9]*)*?$'));
+			return key.match(topicRegExp(topic));
 		});
+	};
+
+	var topicRegExp = function(topic) {
+		return new RegExp('^' + topic ? topic : '\\w+' + '(\\.\\w*)*?$');
 	};
 
 	return {
@@ -33,7 +37,7 @@
 		},
 
 		subscribe: function(topic, subscriber) {
-			if (typeof subscriber === 'function') {
+			if (typeof topic === 'string' && topic.match(topicRegExp()) && typeof subscriber === 'function') {
 				topics[topic] = subscriber;
 
 				return topic;

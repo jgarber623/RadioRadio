@@ -18,15 +18,15 @@ RadioRadio is also really tiny:
 	<tbody>
 		<tr>
 			<th>Uncompressed</th>
-			<td>1,305 bytes</td>
+			<td>1,447 bytes</td>
 		</tr>
 		<tr>
 			<th>Minified</th>
-			<td>771 bytes</td>
+			<td>805 bytes</td>
 		</tr>
 		<tr>
 			<th>Minifed and gzipped</th>
-			<td>478 bytes</td>
+			<td>469 bytes</td>
 		</tr>
 	</tbody>
 </table>
@@ -49,12 +49,12 @@ Adding RadioRadio to your project is easy! You've got a couple options:
 RadioRadio.subscribe(topic, subscriber);
 ```
 
-**Accepts:** `topic` (String) and `subscriber` (Function)
-**Returns:** String or `false`
+- **Accepts:** `topic` (String) and `subscriber` (Function)
+- **Returns:** String or `false`
 
 #### The `topic` argument
 
-Topics may be strings of any length (e.g. `foo`) and may be namespaced using a `.` as a separator (e.g. `foo.bar`).
+Topics must be strings of any length (e.g. `foo`) made up of letters, numbers, and underscores. Topics may also be organized into namespaces using a `.` as a separator (e.g. `foo.bar`).
 
 #### The `subscriber` argument
 
@@ -66,8 +66,8 @@ A function to execute when `topic` is published. Subscribers accept a single arg
 RadioRadio.publish(topic, data);
 ```
 
-**Accepts:** `topic` (String) and `data` (Object)
-**Returns:** Array or `false`
+- **Accepts:** `topic` (String) and `data` (Object)
+- **Returns:** Array or `false`
 
 #### The `topic` argument
 
@@ -95,8 +95,8 @@ The data to pass along to subscribers. Most usefully an Object, `data` _could_ b
 RadioRadio.unsubscribe(topic);
 ```
 
-**Accepts:** `topic` (String)
-**Returns:** `true`
+- **Accepts:** `topic` (String)
+- **Returns:** `true`
 
 #### The `topic` argument
 
