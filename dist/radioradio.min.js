@@ -5,7 +5,7 @@
  *
  *  Source code available at: https://github.com/jgarber623/RadioRadio
  *
- *  (c) 2015-present Jason Garber (https://sixtwothree.org)
+ *  (c) 2016-present Jason Garber (https://sixtwothree.org)
  *
  *  RadioRadio may be freely distributed under the MIT license.
  */

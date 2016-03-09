@@ -10,7 +10,7 @@ var colors = require('colors'),
 		' *\n' +
 		' *  Source code available at: ' + pkg.homepage + '\n' +
 		' *\n' +
-		' *  (c) 2015-present ' + pkg.author.name + ' (' + pkg.author.url + ')\n' +
+		' *  (c) 2016-present ' + pkg.author.name + ' (' + pkg.author.url + ')\n' +
 		' *\n' +
 		' *  RadioRadio may be freely distributed under the ' + pkg.license + ' license.\n' +
 		' */\n';
