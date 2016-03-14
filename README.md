@@ -56,7 +56,7 @@ RadioRadio.subscribe(topic, subscriber);
 
 Topics must be strings of any length (e.g. `foo`) made up of letters, numbers, and underscores. Topics may also be organized into namespaces using a `.` as a separator (e.g. `foo.bar`).
 
-Topics within a namespace may themselves act as namespaces. For example, a subscribed topic `foo.bar.biz` exists in the `foo` _and_ `foo.bar` namespaces. Note that this structure will affect publication (see [Publishing](#Publishing) below).
+Topics within a namespace may themselves act as namespaces. For example, a subscribed topic `foo.bar.biz` exists in the `foo` _and_ `foo.bar` namespaces. Note that this structure will affect publication (see [Publishing](#publishing) below).
 
 Wildcard topics within a namespace (e.g. `foo.*`, `foo.bar.*`) are also allowed. See [Publishing](#publishing) below for more on when these topics are published.
 
