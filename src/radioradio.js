@@ -11,23 +11,27 @@
 
 	var topics = {};
 
-	var filterTopics = function(topic) {
-		return Object.keys(topics).filter(function(key) {
-			return key.match(topicRegExp(topic));
-		});
+	var topicIsValid = function(topic) {
+		return typeof topic === 'string' && topic.match(/^\w+(\.\w+)*(\.\*)?$/);
 	};
 
-	var topicRegExp = function(topic) {
-		return new RegExp('^' + topic ? topic : '\\w+' + '(\\.\\w*)*?$');
+	var setPublishableQueue = function(topic) {
+		var topicRegExp = new RegExp('^' + topic + '(\\.\\w+)*$'),
+			wildcardRegExp = /\.\w+$/,
+			wildcardTopic = topic.match(wildcardRegExp) ? topic.replace(wildcardRegExp, '.*') : false;
+
+		return Object.keys(topics).filter(function(key) {
+			return key === wildcardTopic || key.match(topicRegExp);
+		});
 	};
 
 	return {
 		publish: function(topic, data) {
-			var queue = filterTopics(topic);
+			var queue = topicIsValid(topic) ? setPublishableQueue(topic) : [];
 
 			if (queue.length) {
-				queue.forEach(function(element) {
-					topics[element](data);
+				queue.forEach(function(key) {
+					topics[key](data);
 				});
 
 				return queue;
@@ -37,7 +41,7 @@
 		},
 
 		subscribe: function(topic, subscriber) {
-			if (typeof topic === 'string' && topic.match(topicRegExp()) && typeof subscriber === 'function') {
+			if (topicIsValid(topic) && typeof subscriber === 'function') {
 				topics[topic] = subscriber;
 
 				return topic;

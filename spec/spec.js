@@ -3,27 +3,39 @@ var RadioRadio = require('../src/radioradio.js');
 describe('RadioRadio', () => {
 	var mockData = { alpha: 'beta' },
 		mockSubscriber = data => data.alpha,
-		mockTopics = ['foo', 'foo.bar', 'foo.bar.biz'];
+		mockTopics = ['foo', 'foo.*', 'foo.bar', 'foo.bar.biz'];
 
 	afterEach(() => {
 		mockTopics.forEach(topic => RadioRadio.unsubscribe(topic));
 	});
 
-	describe('#subscribe', () => {
+	describe('subscribe()', () => {
 		it('should not subscribe to a topic when topic is null.', () => {
-			var topic = RadioRadio.subscribe();
+			var topic = RadioRadio.subscribe(null, mockSubscriber);
 
 			expect(topic).toBe(false);
 		});
 
 		it('should not subscribe to a topic when topic is undefined', () => {
-			var topic = RadioRadio.subscribe();
+			var topic = RadioRadio.subscribe(undefined, mockSubscriber);
 
 			expect(topic).toBe(false);
 		});
 
 		it('should not subscribe to a topic when topic is an empty string', () => {
-			var topic = RadioRadio.subscribe('');
+			var topic = RadioRadio.subscribe('', mockSubscriber);
+
+			expect(topic).toBe(false);
+		});
+
+		it('should not subscribe to a topic when topic contains invalid characters', () => {
+			var topic = RadioRadio.subscribe('!', mockSubscriber);
+
+			expect(topic).toBe(false);
+		});
+
+		it('should not subscribe to a namespaced wilcard topic when namespaced wildcard topic is invalid.', () => {
+			var topic = RadioRadio.subscribe('foo.*.bar', mockSubscriber);
 
 			expect(topic).toBe(false);
 		});
@@ -45,9 +57,15 @@ describe('RadioRadio', () => {
 
 			expect(topic).toBe('foo.bar');
 		});
+
+		it('should subscribe to a namespaced wildcard topic.', () => {
+			var topic = RadioRadio.subscribe('foo.*', mockSubscriber);
+
+			expect(topic).toBe('foo.*');
+		});
 	});
 
-	describe('#publish', () => {
+	describe('publish()', () => {
 		it('should not publish to a topic when topic is not subscribed.', () => {
 			expect(RadioRadio.publish('foo', mockData)).toBe(false);
 		});
@@ -72,16 +90,34 @@ describe('RadioRadio', () => {
 			expect(RadioRadio.publish('foo.bar', mockData)).toEqual(['foo.bar']);
 		});
 
+		it('should publish to a namespaced wildcard topic.', () => {
+			RadioRadio.subscribe('foo.*', mockSubscriber);
+
+			expect(RadioRadio.publish('foo.*', mockData)).toEqual(['foo.*']);
+		});
+
 		it('should publish to all topics within a namespace when top-level topic is published.', () => {
-			mockTopics.forEach(topic => {
+			var topics = ['foo', 'foo.bar', 'foo.bar.biz'];
+
+			topics.forEach(topic => {
 				RadioRadio.subscribe(topic, mockSubscriber);
 			});
 
-			expect(RadioRadio.publish('foo', mockData)).toEqual(mockTopics);
+			expect(RadioRadio.publish('foo', mockData)).toEqual(topics);
+		});
+
+		it('should publish to a namespaced wildcard topic when an adjacent namespaced topic is published.', () => {
+			var topics = ['foo.*', 'foo.bar'];
+
+			topics.forEach(topic => {
+				RadioRadio.subscribe(topic, mockSubscriber);
+			});
+
+			expect(RadioRadio.publish('foo.bar', mockData)).toEqual(topics);
 		});
 	});
 
-	describe('#unsubscribe', () => {
+	describe('unsubscribe()', () => {
 		it('should unsubscribe from a topic.', () => {
 			RadioRadio.subscribe('foo', mockSubscriber);
 
