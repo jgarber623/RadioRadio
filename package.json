@@ -1,6 +1,6 @@
 {
   "name": "radioradio",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A very basic JavaScript PubSub library.",
   "main": "dist/radioradio.js",
   "directories": {
@@ -31,11 +31,11 @@
   "homepage": "https://github.com/jgarber623/RadioRadio",
   "devDependencies": {
     "cli-table": "^0.3.1",
-    "codeclimate-test-reporter": "^0.3.3",
+    "codeclimate-test-reporter": "^0.4.0",
     "colors": "^1.1.2",
     "comma-number": "^1.1.0",
     "gzip-size": "^3.0.0",
-    "jasmine": "^2.4.1",
-    "uglify-js": "^2.6.2"
+    "jasmine": "^2.5.2",
+    "uglify-js": "^2.7.5"
   }
 }

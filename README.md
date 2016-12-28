@@ -10,7 +10,7 @@ RadioRadio is a very basic, lightweight, dependency-free JavaScript [PubSub](htt
 
 - Supports namespaced events (e.g. `foo.bar`)
 - Dependency-free
-- AMD/CommonJS module support
+- AMD/Node module support
 
 RadioRadio is also really tiny:
 
@@ -18,15 +18,15 @@ RadioRadio is also really tiny:
 	<tbody>
 		<tr>
 			<th>Uncompressed</th>
-			<td>1,651 bytes</td>
+			<td>1,668 bytes</td>
 		</tr>
 		<tr>
 			<th>Minified</th>
-			<td>910 bytes</td>
+			<td>925 bytes</td>
 		</tr>
 		<tr>
 			<th>Minified and gzipped</th>
-			<td>543 bytes</td>
+			<td>549 bytes</td>
 		</tr>
 	</tbody>
 </table>
@@ -149,7 +149,10 @@ if (Object.keys && Array.forEach) {
 
 RadioRadio is inspired by [Morgan Roderick](https://github.com/mroderick)'s [PubSubJS](https://github.com/mroderick/PubSubJS).
 
-RadioRadio is written and maintained by [Jason Garber](https://sixtwothree.org/) and, yes, it's named after [an Elvis Costello & The Attractions song](https://www.youtube.com/watch?v=eifljYPFW-E).
+RadioRadio is written and maintained by [Jason Garber](https://sixtwothree.org/) and, yes, it's named after [an Elvis Costello & The Attractions song](https://www.youtube.com/watch?v=eifljYPFW-E). It's also another in a growing line of small, curiously-named JavaScript utilities:
+
+- [CashCash](https://github.com/jgarber623/CashCash), a very small DOM library inspired by [jQuery](http://jquery.com/).
+- [RouterRouter](https://github.com/jgarber623/RouterRouter), a routing library extracted from [Backbone's Router](http://backbonejs.org/docs/backbone.html#section-169).
 
 
 ## License

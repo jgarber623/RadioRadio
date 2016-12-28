@@ -1,5 +1,5 @@
 /*!
- *  RadioRadio 0.2.0
+ *  RadioRadio 0.2.1
  *
  *  A very basic JavaScript PubSub library.
  *
@@ -13,7 +13,7 @@
 (function(root, factory) {
   if (typeof define === "function" && define.amd) {
     define([], factory);
-  } else if (typeof exports === "object") {
+  } else if (typeof module === "object" && module.exports) {
     module.exports = factory();
   } else {
     root.RadioRadio = factory();
