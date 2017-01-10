@@ -29,15 +29,11 @@
 		publish: function(topic, data) {
 			var queue = topicIsValid(topic) ? setPublishableQueue(topic) : [];
 
-			if (queue.length) {
-				queue.forEach(function(key) {
-					topics[key](data);
-				});
+			queue.forEach(function(key) {
+				topics[key](data);
+			});
 
-				return queue;
-			} else {
-				return false;
-			}
+			return queue.length ? queue : false;
 		},
 
 		subscribe: function(topic, subscriber) {

@@ -3,6 +3,7 @@
 let colors = require('colors');
 let exec = require('child_process').exec;
 let pkg = require('../package.json');
+let year = new Date().getFullYear();
 
 let preamble = `/*!
  *  RadioRadio ${pkg.version}
@@ -11,7 +12,7 @@ let preamble = `/*!
  *
  *  Source code available at: ${pkg.homepage}
  *
- *  (c) 2016-present ${pkg.author.name} (${pkg.author.url})
+ *  (c) 2016-${year} ${pkg.author.name} (${pkg.author.url})
  *
  *  RadioRadio may be freely distributed under the ${pkg.license} license.
  */

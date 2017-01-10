@@ -18,15 +18,15 @@ RadioRadio is also really tiny:
 	<tbody>
 		<tr>
 			<th>Uncompressed</th>
-			<td>1,668 bytes</td>
+			<td>1,609 bytes</td>
 		</tr>
 		<tr>
 			<th>Minified</th>
-			<td>925 bytes</td>
+			<td>921 bytes</td>
 		</tr>
 		<tr>
 			<th>Minified and gzipped</th>
-			<td>549 bytes</td>
+			<td>548 bytes</td>
 		</tr>
 	</tbody>
 </table>

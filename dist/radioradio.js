@@ -1,11 +1,11 @@
 /*!
- *  RadioRadio 0.2.1
+ *  RadioRadio 0.2.2
  *
  *  A very basic JavaScript PubSub library.
  *
  *  Source code available at: https://github.com/jgarber623/RadioRadio
  *
- *  (c) 2016-present Jason Garber (https://sixtwothree.org)
+ *  (c) 2016-2017 Jason Garber (https://sixtwothree.org)
  *
  *  RadioRadio may be freely distributed under the MIT license.
  */
@@ -33,14 +33,10 @@
   return {
     publish: function(topic, data) {
       var queue = topicIsValid(topic) ? setPublishableQueue(topic) : [];
-      if (queue.length) {
-        queue.forEach(function(key) {
-          topics[key](data);
-        });
-        return queue;
-      } else {
-        return false;
-      }
+      queue.forEach(function(key) {
+        topics[key](data);
+      });
+      return queue.length ? queue : false;
     },
     subscribe: function(topic, subscriber) {
       if (topicIsValid(topic) && typeof subscriber === "function") {
