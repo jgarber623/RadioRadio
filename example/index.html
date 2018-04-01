@@ -1,68 +1,90 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
 
-	<title>RadioRadio: Example</title>
+  <title>RadioRadio: Example</title>
 
-	<style>
-		[aria-hidden] {
-			display: none !important;
-		}
-	</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      color: #333;
+      font-family: sans-serif;
+      line-height: 1.5;
+      padding: 3rem;
+    }
+
+    button {
+      background-color: #ddd;
+      border-radius: 0.25rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+    }
+
+    [aria-hidden] {
+      display: none !important;
+    }
+  </style>
 </head>
 <body>
 
-	<h1>Showing <span>all</span> items</h1>
+  <h1>RadioRadio: Example</h1>
 
-	<button data-show="all">Show all items</button>
-	<button data-show="even">Show even items</button>
-	<button data-show="odd">Show odd items</button>
+  <h2>Showing <span>all</span> items.</h3>
 
-	<ul id="list">
-		<li class="odd">Item #1</li>
-		<li class="even">Item #2</li>
-		<li class="odd">Item #3</li>
-		<li class="even">Item #4</li>
-		<li class="odd">Item #5</li>
-		<li class="even">Item #6</li>
-	</ul>
+  <button data-show="all">Show all items</button>
+  <button data-show="even">Show even items</button>
+  <button data-show="odd">Show odd items</button>
 
-	<script src="../src/radioradio.js"></script>
-	<script>
-		if (window.addEventListener && document.querySelector) {
-			var $title = document.querySelector('h1 span'),
-				$buttons = document.querySelectorAll('button'),
-				$listItems = document.querySelectorAll('#list li');
+  <ul id="list">
+    <li class="odd">Item #1</li>
+    <li class="even">Item #2</li>
+    <li class="odd">Item #3</li>
+    <li class="even">Item #4</li>
+    <li class="odd">Item #5</li>
+    <li class="even">Item #6</li>
+  </ul>
 
-			var handleClick = function(event) {
-				event.preventDefault();
+  <script src="../src/radioradio.js"></script>
+  <script>
+    if (window.addEventListener && document.querySelector) {
+      var $title = document.querySelector('h2 span'),
+          $buttons = document.querySelectorAll('button'),
+          $listItems = document.querySelectorAll('#list li');
 
-				RadioRadio.publish('update', {
-					show: event.currentTarget.getAttribute('data-show')
-				});
-			};
+      var handleClick = function(event) {
+        event.preventDefault();
 
-			var updateList = function(data) {
-				for (var i = 0, j = $listItems.length; i < j; i++) {
-					var $listItem = $listItems[i];
+        RadioRadio.publish('update', {
+          show: event.currentTarget.getAttribute('data-show')
+        });
+      };
 
-					$listItem[(data.show === 'all' || $listItem.classList.contains(data.show)) ? 'removeAttribute' : 'setAttribute']('aria-hidden', true);
-				}
-			};
+      var updateList = function(data) {
+        $listItems.forEach(function($listItem) {
+          if (data.show === 'all' || $listItem.classList.contains(data.show)) {
+            $listItem.removeAttribute('aria-hidden');
+          } else {
+            $listItem.setAttribute('aria-hidden', true);
+          }
+        });
+      };
 
-			var updateTitle = function(data) {
-				$title.innerHTML = data.show;
-			};
+      var updateTitle = function(data) {
+        $title.innerHTML = data.show;
+      };
 
-			for (var i = 0, j = $buttons.length; i < j; i++) {
-				$buttons[i].addEventListener('click', handleClick);
-			}
+      $buttons.forEach(function($button) {
+        $button.addEventListener('click', handleClick);
+      });
 
-			RadioRadio.subscribe('update.title', updateTitle);
-			RadioRadio.subscribe('update.list', updateList);
-		}
-	</script>
+      RadioRadio.subscribe('update.title', updateTitle);
+      RadioRadio.subscribe('update.list', updateList);
+    }
+  </script>
 
 </body>
 </html>

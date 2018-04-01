@@ -1,10 +1,13 @@
 # RadioRadio
 
-[![npm version](https://badge.fury.io/js/radioradio.svg)](https://badge.fury.io/js/radioradio)
-[![Build Status](https://travis-ci.org/jgarber623/RadioRadio.svg?branch=master)](https://travis-ci.org/jgarber623/RadioRadio)
-[![Code Climate](https://codeclimate.com/github/jgarber623/RadioRadio/badges/gpa.svg)](https://codeclimate.com/github/jgarber623/RadioRadio)
+**A very small, lightweight, dependency-free JavaScript [PubSub](https://en.wikipedia.org/wiki/Publish–subscribe_pattern) library.**
 
-RadioRadio is a very basic, lightweight, dependency-free JavaScript [PubSub](https://en.wikipedia.org/wiki/Publish–subscribe_pattern) library.
+[![npm](https://img.shields.io/npm/v/@jgarber/radioradio.svg?style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
+[![Bower](https://img.shields.io/bower/v/radioradio.svg?style=for-the-badge)](https://bower.io/search/?q=radioradio)
+[![Downloads](https://img.shields.io/npm/dt/@jgarber/radioradio.svg?style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
+[![Build](https://img.shields.io/travis/jgarber623/RadioRadio.svg?style=for-the-badge)](https://travis-ci.org/jgarber623/RadioRadio)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/RadioRadio.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
+[![Coverage](https://img.shields.io/codeclimate/coverage/jgarber623/RadioRadio.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
 
 ### Key Features
 
@@ -15,31 +18,30 @@ RadioRadio is a very basic, lightweight, dependency-free JavaScript [PubSub](htt
 RadioRadio is also really tiny:
 
 <table>
-	<tbody>
-		<tr>
-			<th>Uncompressed</th>
-			<td>1,609 bytes</td>
-		</tr>
-		<tr>
-			<th>Minified</th>
-			<td>921 bytes</td>
-		</tr>
-		<tr>
-			<th>Minified and gzipped</th>
-			<td>548 bytes</td>
-		</tr>
-	</tbody>
+  <tbody>
+    <tr>
+      <th>Uncompressed</th>
+      <td>1,649 bytes</td>
+    </tr>
+    <tr>
+      <th>Minified</th>
+      <td>954 bytes</td>
+    </tr>
+    <tr>
+      <th>Minified and gzipped</th>
+      <td>565 bytes</td>
+    </tr>
+  </tbody>
 </table>
-
 
 ## Getting RadioRadio
 
-Adding RadioRadio to your project is easy! You've got a couple options:
+You've got a couple options for adding RadioRadio to your project:
 
 - [Download a tagged version](https://github.com/jgarber623/RadioRadio/tags) from GitHub and do it yourself _(old school)_.
-- Install via [Bower](http://bower.io/): `bower install radioradio`
-- Install via [npm](https://www.npmjs.com/): `npm install radioradio`
-
+- Install using [npm](https://www.npmjs.com/package/@jgarber/radioradio): `npm install @jgarber/radioradio --save`
+- Install using [Yarn](https://yarnpkg.com/en/package/@jgarber/radioradio): `yarn add @jgarber/radioradio`
+- Install using [Bower](https://bower.io/search/?q=radioradio): `bower install radioradio --save`
 
 ## Usage
 
@@ -124,8 +126,7 @@ The topic from which you wish to unsubscribe. Calling this method removes `topic
 
 ### Example
 
-For a full-featured RadioRadio demonstration, check out [the included example file](./example/index.html).
-
+For a full-featured RadioRadio demonstration, check out [the included example file](https://github.com/jgarber623/RadioRadio/blog/master/example/index.html).
 
 ## Browser Support
 
@@ -134,27 +135,26 @@ RadioRadio works in all modern browsers. The library makes use of several new(is
 - `Object.keys` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys))
 - `Array.prototype.forEach()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
 
-Internet Explorer added native support for these features in version 9, but if you wish to support older versions of IE, check out the polyfills available on the above linked MDN pages. RadioRadio, in an effort to remain as lightweight and dependency-free as possible, leaves it up to you to choose to polyfill older versions of IE.
-
-To avoid throwing JavaScript errors in browsers that don't support these features, you can [cut the mustard](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard):
+Internet Explorer added native support for these features in version 9. To avoid throwing JavaScript errors in browsers that don't support these features, you can [cut the mustard](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard):
 
 ```js
 if (Object.keys && Array.forEach) {
-    // Your scripts here…
+  // Your scripts here…
 }
 ```
 
+RadioRadio, in an effort to remain as lightweight and dependency-free as possible, leaves it up to you to choose whether or not to polyfill features for older browsers.
 
 ## Acknowledgments
 
 RadioRadio is inspired by [Morgan Roderick](https://github.com/mroderick)'s [PubSubJS](https://github.com/mroderick/PubSubJS).
 
-RadioRadio is written and maintained by [Jason Garber](https://sixtwothree.org/) and, yes, it's named after [an Elvis Costello & The Attractions song](https://www.youtube.com/watch?v=eifljYPFW-E). It's also another in a growing line of small, curiously-named JavaScript utilities:
+RadioRadio is written and maintained by [Jason Garber](https://sixtwothree.org) and, yes, it's named after [an Elvis Costello & The Attractions song](https://www.youtube.com/watch?v=eifljYPFW-E). It's also another in a growing line of small, curiously-named JavaScript utilities:
 
-- [CashCash](https://github.com/jgarber623/CashCash), a very small DOM library inspired by [jQuery](http://jquery.com/).
-- [RouterRouter](https://github.com/jgarber623/RouterRouter), a routing library extracted from [Backbone's Router](http://backbonejs.org/docs/backbone.html#section-169).
-
+- [CashCash](https://github.com/jgarber623/CashCash), a very small DOM library inspired by [jQuery](https://jquery.com).
+- [RouterRouter](https://github.com/jgarber623/RouterRouter), a very small routing library extracted from [Backbone's Router](http://backbonejs.org/docs/backbone.html#section-185).
+- [TemplateTemplate](https://github.com/jgarber623/TemplateTemplate), a very small `<template>` manipulation library.
 
 ## License
 
-RadioRadio is freely available under [The MIT License](http://opensource.org/licenses/MIT). Use it, learn from it, fork it, improve it, change it, tailor it to your needs.
+RadioRadio is freely available under [The MIT License](https://opensource.org/licenses/MIT). Use it, learn from it, fork it, improve it, change it, tailor it to your needs.

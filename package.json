@@ -1,41 +1,43 @@
 {
-  "name": "radioradio",
-  "version": "0.2.2",
+  "name": "@jgarber/radioradio",
+  "version": "0.2.3",
   "description": "A very basic JavaScript PubSub library.",
-  "main": "dist/radioradio.js",
-  "directories": {
-    "example": "./example"
-  },
-  "scripts": {
-    "build": "./scripts/build.js; ./scripts/stats.js",
-    "stats": "./scripts/stats.js",
-    "test": "jasmine"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jgarber623/RadioRadio.git"
-  },
   "keywords": [
     "javascript",
     "pubsub"
   ],
+  "homepage": "https://github.com/jgarber623/RadioRadio",
+  "bugs": {
+    "url": "https://github.com/jgarber623/RadioRadio/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jason Garber",
     "email": "jason@sixtwothree.org",
     "url": "https://sixtwothree.org"
   },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jgarber623/RadioRadio/issues"
+  "main": "dist/radioradio.js",
+  "directories": {
+    "example": "./example"
   },
-  "homepage": "https://github.com/jgarber623/RadioRadio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jgarber623/RadioRadio.git"
+  },
+  "scripts": {
+    "build": "./scripts/build.js && ./scripts/stats.js",
+    "stats": "./scripts/stats.js",
+    "test": "npm run test:lint && npm run test:specs",
+    "test:lint": "$(npm bin)/eslint .",
+    "test:specs": "$(npm bin)/jasmine"
+  },
   "devDependencies": {
     "cli-table": "^0.3.1",
-    "codeclimate-test-reporter": "^0.4.0",
-    "colors": "^1.1.2",
-    "comma-number": "^1.1.0",
-    "gzip-size": "^3.0.0",
-    "jasmine": "^2.5.2",
-    "uglify-js": "^2.7.5"
+    "colors": "^1.2.1",
+    "comma-number": "^2.0.0",
+    "eslint": "^4.19.1",
+    "gzip-size": "^4.1.0",
+    "jasmine": "^3.1.0",
+    "uglify-js": "^2.8.29"
   }
 }

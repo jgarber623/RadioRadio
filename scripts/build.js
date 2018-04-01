@@ -1,24 +1,27 @@
 #!/usr/bin/env node
 
-let colors = require('colors');
-let exec = require('child_process').exec;
-let pkg = require('../package.json');
-let year = new Date().getFullYear();
+const colors = require('colors');
+const exec = require('child_process').exec;
+const pkg = require('../package.json');
 
-let preamble = `/*!
- *  RadioRadio ${pkg.version}
+const basename = 'radioradio'
+const packageName = 'RadioRadio';
+const releaseYear = 2016;
+
+const preamble = `/*!
+ *  ${packageName} ${pkg.version}
  *
  *  ${pkg.description}
  *
  *  Source code available at: ${pkg.homepage}
  *
- *  (c) 2016-${year} ${pkg.author.name} (${pkg.author.url})
+ *  (c) ${releaseYear}-present ${pkg.author.name} (${pkg.author.url})
  *
- *  RadioRadio may be freely distributed under the ${pkg.license} license.
+ *  ${packageName} may be freely distributed under the ${pkg.license} license.
  */
 `;
 
-exec(`$(npm bin)/uglifyjs src/radioradio.js --beautify 'indent-level=2' --preamble '${preamble}' --output dist/radioradio.js`);
-exec(`$(npm bin)/uglifyjs src/radioradio.js --compress --mangle --preamble '${preamble}' --output dist/radioradio.min.js`);
+exec(`$(npm bin)/uglifyjs src/${basename}.js --beautify 'indent-level=2' --preamble '${preamble}' --output dist/${basename}.js`);
+exec(`$(npm bin)/uglifyjs src/${basename}.js --compress --mangle --preamble '${preamble}' --output dist/${basename}.min.js`);
 
-console.log(colors.green(`RadioRadio ${pkg.version} built successfully!`));
+console.log(colors.green(`${packageName} ${pkg.version} built successfully!`));
