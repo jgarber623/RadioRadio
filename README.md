@@ -126,7 +126,7 @@ The topic from which you wish to unsubscribe. Calling this method removes `topic
 
 ### Example
 
-For a full-featured RadioRadio demonstration, check out [the included example file](https://github.com/jgarber623/RadioRadio/blog/master/example/index.html).
+For a full-featured RadioRadio demonstration, check out [the included example file](https://github.com/jgarber623/RadioRadio/blob/master/example/index.html).
 
 ## Browser Support
 
