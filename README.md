@@ -3,7 +3,6 @@
 **A very small, lightweight, dependency-free JavaScript [PubSub](https://en.wikipedia.org/wiki/Publish–subscribe_pattern) library.**
 
 [![npm](https://img.shields.io/npm/v/@jgarber/radioradio.svg?style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
-[![Bower](https://img.shields.io/bower/v/radioradio.svg?style=for-the-badge)](https://bower.io/search/?q=radioradio)
 [![Downloads](https://img.shields.io/npm/dt/@jgarber/radioradio.svg?style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
 [![Build](https://img.shields.io/travis/jgarber623/RadioRadio.svg?style=for-the-badge)](https://travis-ci.org/jgarber623/RadioRadio)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/RadioRadio.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
@@ -20,15 +19,15 @@ RadioRadio is also really tiny:
 <table>
   <tbody>
     <tr>
-      <th>Uncompressed</th>
+      <th align="left">Uncompressed</th>
       <td>1,649 bytes</td>
     </tr>
     <tr>
-      <th>Minified</th>
+      <th align="left">Minified</th>
       <td>954 bytes</td>
     </tr>
     <tr>
-      <th>Minified and gzipped</th>
+      <th align="left">Minified and gzipped</th>
       <td>565 bytes</td>
     </tr>
   </tbody>
@@ -132,8 +131,8 @@ For a full-featured RadioRadio demonstration, check out [the included example fi
 
 RadioRadio works in all modern browsers. The library makes use of several new(ish) JavaScript methods, including:
 
-- `Object.keys` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys))
-- `Array.prototype.forEach()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
+- `Object.keys()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys))
+- `Array.forEach()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
 
 Internet Explorer added native support for these features in version 9. To avoid throwing JavaScript errors in browsers that don't support these features, you can [cut the mustard](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard):
 
