@@ -1,7 +1,7 @@
 {
   "name": "radioradio",
   "description": "A very small JavaScript PubSub library.",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "main": "dist/radioradio.js",
   "moduleType": [
     "globals",

@@ -16,22 +16,11 @@
 
 RadioRadio is also really tiny:
 
-<table>
-  <tbody>
-    <tr>
-      <th align="left">Uncompressed</th>
-      <td>1,649 bytes</td>
-    </tr>
-    <tr>
-      <th align="left">Minified</th>
-      <td>954 bytes</td>
-    </tr>
-    <tr>
-      <th align="left">Minified and gzipped</th>
-      <td>565 bytes</td>
-    </tr>
-  </tbody>
-</table>
+| Format                 | File Size   | Gzipped Size |
+|:-----------------------|:------------|:-------------|
+| Uncompressed (module)  | 1,294 bytes | 616 bytes    |
+| Uncompressed (browser) | 1,603 bytes | 713 bytes    |
+| Minified (browser)     | 931 bytes   | 558 bytes    |
 
 ## Getting RadioRadio
 
