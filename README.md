@@ -16,11 +16,11 @@
 
 RadioRadio is also really tiny:
 
-| Format                 | File Size   | Gzipped Size |
-|:-----------------------|:------------|:-------------|
-| Uncompressed (module)  | 1,294 bytes | 616 bytes    |
-| Uncompressed (browser) | 1,603 bytes | 713 bytes    |
-| Minified (browser)     | 931 bytes   | 558 bytes    |
+| Format                 | File Size   | Minified Size | Gzipped Size |
+|:-----------------------|:------------|:--------------|:-------------|
+| Uncompressed (module)  | 1,294 bytes | 596 bytes     | 340 bytes    |
+| Uncompressed (browser) | 1,633 bytes | 658 bytes     | 388 bytes    |
+| Minified (browser)     | 941 bytes   | 658 bytes     | 388 bytes    |
 
 ## Getting RadioRadio
 

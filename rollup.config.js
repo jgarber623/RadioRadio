@@ -1,7 +1,7 @@
 import pkg from './package.json';
 
 import filesize from 'rollup-plugin-filesize';
-import uglify from 'rollup-plugin-uglify';
+import { terser } from 'rollup-plugin-terser';
 
 const packageName = 'RadioRadio';
 const releaseYear = 2016;
@@ -45,7 +45,7 @@ export default [
     ],
     plugins: [
       filesize(filesizePluginOptions),
-      uglify({
+      terser({
         compress: false,
         mangle: false,
         output: {
@@ -67,7 +67,7 @@ export default [
     },
     plugins: [
       filesize(filesizePluginOptions),
-      uglify({
+      terser({
         output: {
           preamble: preamble
         }
