@@ -48,42 +48,41 @@
     <li class="even">Item #6</li>
   </ul>
 
-  <script src="../dist/radioradio.js"></script>
-  <script>
-    if (window.addEventListener && document.querySelector) {
-      var $title = document.querySelector('h2 span'),
-          $buttons = document.querySelectorAll('button'),
-          $listItems = document.querySelectorAll('#list li');
+  <script type="module">
+    import RadioRadio from '../dist/radioradio.mjs';
 
-      var handleClick = function(event) {
-        event.preventDefault();
+    const $title = document.querySelector('h2 span');
+    const $buttons = document.querySelectorAll('button');
+    const $listItems = document.querySelectorAll('#list li');
 
-        RadioRadio.publish('update', {
-          show: event.currentTarget.getAttribute('data-show')
-        });
-      };
+    const handleClick = event => {
+      event.preventDefault();
 
-      var updateList = function(data) {
-        $listItems.forEach(function($listItem) {
-          if (data.show === 'all' || $listItem.classList.contains(data.show)) {
-            $listItem.removeAttribute('aria-hidden');
-          } else {
-            $listItem.setAttribute('aria-hidden', true);
-          }
-        });
-      };
-
-      var updateTitle = function(data) {
-        $title.innerHTML = data.show;
-      };
-
-      $buttons.forEach(function($button) {
-        $button.addEventListener('click', handleClick);
+      RadioRadio.publish('update', {
+        show: event.currentTarget.getAttribute('data-show')
       });
+    };
 
-      RadioRadio.subscribe('update.title', updateTitle);
-      RadioRadio.subscribe('update.list', updateList);
-    }
+    const updateList = data => {
+      $listItems.forEach($listItem => {
+        if (data.show === 'all' || $listItem.classList.contains(data.show)) {
+          $listItem.removeAttribute('aria-hidden');
+        } else {
+          $listItem.setAttribute('aria-hidden', true);
+        }
+      });
+    };
+
+    const updateTitle = data => {
+      $title.innerHTML = data.show;
+    };
+
+    $buttons.forEach($button => {
+      $button.addEventListener('click', handleClick);
+    });
+
+    RadioRadio.subscribe('update.title', updateTitle);
+    RadioRadio.subscribe('update.list', updateList);
   </script>
 
 </body>
