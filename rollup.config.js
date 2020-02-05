@@ -29,7 +29,7 @@ const preamble = `/*!
 `;
 
 export default [
-  // radioradio.es.js and radioradio.js
+  // radioradio.mjs and radioradio.js
   {
     input: srcFilePath,
     output: [
@@ -61,7 +61,7 @@ export default [
   {
     input: srcFilePath,
     output: {
-      file: pkg.main.replace(/\.js$/, '.min.js'),
+      file: pkg.browser,
       format: 'umd',
       name: packageName
     },
