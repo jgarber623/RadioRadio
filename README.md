@@ -18,9 +18,9 @@ RadioRadio is also really tiny:
 
 | Format                 | File Size   | Minified Size | Gzipped Size |
 |:-----------------------|:------------|:--------------|:-------------|
-| Uncompressed (module)  | 1,294 bytes | 596 bytes     | 340 bytes    |
-| Uncompressed (browser) | 1,633 bytes | 658 bytes     | 388 bytes    |
-| Minified (browser)     | 941 bytes   | 658 bytes     | 388 bytes    |
+| Uncompressed (module)  | 1,212 bytes | 829 bytes     | 507 bytes    |
+| Uncompressed (browser) | 1,685 bytes | 956 bytes     | 586 bytes    |
+| Minified (browser)     | 958 bytes   | 956 bytes     | 586 bytes    |
 
 ## Getting RadioRadio
 
@@ -118,18 +118,12 @@ For a full-featured RadioRadio demonstration, check out [the included example fi
 
 ## Browser Support
 
-RadioRadio works in all modern browsers. The library makes use of several new(ish) JavaScript methods, including:
+RadioRadio works in modern browsers. The library makes use of several new(ish) JavaScript methods, including:
 
+- Arrow function expressions ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions))
+- Template literals ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals))
 - `Object.keys()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys))
-- `Array.forEach()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
-
-Internet Explorer added native support for these features in version 9. To avoid throwing JavaScript errors in browsers that don't support these features, you can [cut the mustard](http://responsivenews.co.uk/post/18948466399/cutting-the-mustard):
-
-```js
-if (Object.keys && Array.forEach) {
-  // Your scripts here…
-}
-```
+- `Array.prototype.forEach()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
 
 RadioRadio, in an effort to remain as lightweight and dependency-free as possible, leaves it up to you to choose whether or not to polyfill features for older browsers.
 
