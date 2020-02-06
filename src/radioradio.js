@@ -1,43 +1,37 @@
-var topics = {};
+let topics = {};
 
-function topicIsValid(topic) {
+const topicIsValid = topic => {
   return typeof topic === 'string' && topic.match(/^\w+(\.\w+)*(\.\*)?$/);
-}
-
-function setPublishableQueue(topic) {
-  var topicRegExp = new RegExp('^' + topic + '(\\.\\w+)*$'),
-      wildcardRegExp = /\.\w+$/,
-      wildcardTopic = topic.match(wildcardRegExp) ? topic.replace(wildcardRegExp, '.*') : false;
-
-  return Object.keys(topics).filter(function(key) {
-    return key === wildcardTopic || key.match(topicRegExp);
-  });
-}
-
-var RadioRadio = {
-  publish: function(topic, data) {
-    var queue = topicIsValid(topic) ? setPublishableQueue(topic) : [];
-
-    queue.forEach(function(key) {
-      topics[key](data);
-    });
-
-    return queue.length ? queue : false;
-  },
-
-  subscribe: function(topic, subscriber) {
-    if (topicIsValid(topic) && typeof subscriber === 'function') {
-      topics[topic] = subscriber;
-
-      return topic;
-    } else {
-      return false;
-    }
-  },
-
-  unsubscribe: function(topic) {
-    return delete topics[topic];
-  }
 };
 
-export default RadioRadio;
+const setPublishableQueue = topic => {
+  const topicRegExp = new RegExp(`^${topic}(\\.\\w+)*$`);
+  const wildcardRegExp = /\.\w+$/;
+  const wildcardTopic = topic.match(wildcardRegExp) ? topic.replace(wildcardRegExp, '.*') : false;
+
+  return Object.keys(topics).filter(key => {
+    return key === wildcardTopic || key.match(topicRegExp);
+  });
+};
+
+export function publish(topic, data) {
+  const queue = topicIsValid(topic) ? setPublishableQueue(topic) : [];
+
+  queue.forEach(key => topics[key](data));
+
+  return queue.length ? queue : false;
+}
+
+export function subscribe(topic, subscriber) {
+  if (topicIsValid(topic) && typeof subscriber === 'function') {
+    topics[topic] = subscriber;
+
+    return topic;
+  } else {
+    return false;
+  }
+}
+
+export function unsubscribe(topic) {
+  return delete topics[topic];
+}
