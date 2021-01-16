@@ -30,12 +30,12 @@
     "url": "https://github.com/jgarber623/RadioRadio.git"
   },
   "scripts": {
-    "build": "npx rollup --config",
+    "build": "rollup --config",
     "pretest": "npm run build",
-    "start": "npx rollup --config --watch",
-    "test": "npx npm-run-all test:*",
-    "test:lint": "npx eslint .",
-    "test:specs": "npx jasmine"
+    "start": "rollup --config --watch",
+    "test": "npm-run-all test:*",
+    "test:lint": "eslint .",
+    "test:specs": "jasmine"
   },
   "devDependencies": {
     "eslint": "^7.4.0",
