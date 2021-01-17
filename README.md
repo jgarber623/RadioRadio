@@ -2,11 +2,12 @@
 
 **A very small, lightweight, dependency-free JavaScript [PubSub](https://en.wikipedia.org/wiki/Publish–subscribe_pattern) library.**
 
-[![npm](https://img.shields.io/npm/v/@jgarber/radioradio.svg?style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
-[![Downloads](https://img.shields.io/npm/dt/@jgarber/radioradio.svg?style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
-[![Build](https://img.shields.io/circleci/build/github/jgarber623/RadioRadio?style=for-the-badge)](https://app.circleci.com/pipelines/github/jgarber623/RadioRadio)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/RadioRadio.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
-[![Coverage](https://img.shields.io/codeclimate/coverage/jgarber623/RadioRadio.svg?style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
+[![npm](https://img.shields.io/npm/v/@jgarber/radioradio.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
+[![Downloads](https://img.shields.io/npm/dt/@jgarber/radioradio.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
+[![Build](https://img.shields.io/circleci/build/github/jgarber623/RadioRadio?logo=circleci&style=for-the-badge)](https://app.circleci.com/pipelines/github/jgarber623/RadioRadio)
+[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/RadioRadio.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
+[![Coverage](https://img.shields.io/codeclimate/coverage/jgarber623/RadioRadio.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
+[![Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/jgarber623/RadioRadio?logo=snyk&style=for-the-badge)](https://snyk.io/test/github/jgarber623/RadioRadio)
 
 ### Key Features
 
