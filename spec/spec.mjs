@@ -1,4 +1,4 @@
-const RadioRadio = require('../dist/radioradio.js');
+import * as RadioRadio from '../dist/radioradio.mjs';
 
 describe('RadioRadio', () => {
   const mockData = { alpha: 'beta' };

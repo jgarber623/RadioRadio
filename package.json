@@ -28,11 +28,12 @@
     "build": "rollup --config --input src/radioradio.js --name RadioRadio",
     "lint": "eslint .",
     "start": "npm run build -- --watch",
-    "test": "jasmine"
+    "test": "jasmine-browser-runner runSpecs"
   },
   "devDependencies": {
     "@jgarber/eslint-config": "*",
-    "jasmine": "^3.9.0",
+    "jasmine-browser-runner": "*",
+    "jasmine-core": "*",
     "rollup": "*",
     "rollup-plugin-terser": "*"
   }
