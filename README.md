@@ -29,7 +29,6 @@ You've got a couple options for adding RadioRadio to your project:
 - [Download a tagged version](https://github.com/jgarber623/RadioRadio/tags) from GitHub and do it yourself _(old school)_.
 - Install using [npm](https://www.npmjs.com/package/@jgarber/radioradio): `npm install @jgarber/radioradio --save`
 - Install using [Yarn](https://yarnpkg.com/en/package/@jgarber/radioradio): `yarn add @jgarber/radioradio`
-- Install using [Bower](https://bower.io/search/?q=radioradio): `bower install radioradio --save`
 
 ## Usage
 
