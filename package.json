@@ -7,9 +7,7 @@
     "pubsub"
   ],
   "homepage": "https://github.com/jgarber623/RadioRadio",
-  "bugs": {
-    "url": "https://github.com/jgarber623/RadioRadio/issues"
-  },
+  "bugs": "https://github.com/jgarber623/RadioRadio/issues",
   "license": "MIT",
   "author": {
     "name": "Jason Garber",
@@ -25,10 +23,7 @@
   "directories": {
     "example": "example"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/jgarber623/RadioRadio.git"
-  },
+  "repository": "github:jgarber623/RadioRadio",
   "scripts": {
     "build": "rollup --config",
     "pretest": "npm run build",
