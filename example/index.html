@@ -49,7 +49,7 @@
   </ul>
 
   <script type="module">
-    import { publish, subscribe } from '../dist/radioradio.mjs';
+    import * as RadioRadio from '../dist/radioradio.mjs';
 
     const $title = document.querySelector('h2 span');
     const $buttons = document.querySelectorAll('button');
@@ -58,7 +58,7 @@
     const handleClick = event => {
       event.preventDefault();
 
-      publish('update', {
+      RadioRadio.publish('update', {
         show: event.currentTarget.getAttribute('data-show')
       });
     };
@@ -67,7 +67,7 @@
       $button.addEventListener('click', handleClick);
     });
 
-    subscribe('update.title', ({ show }) => {
+    RadioRadio.subscribe('update.title', ({ show }) => {
       $listItems.forEach($listItem => {
         if (show === 'all' || $listItem.classList.contains(show)) {
           $listItem.removeAttribute('aria-hidden');
@@ -77,7 +77,7 @@
       });
     });
 
-    subscribe('update.list', ({ show }) => {
+    RadioRadio.subscribe('update.list', ({ show }) => {
       $title.innerHTML = show;
     });
   </script>
