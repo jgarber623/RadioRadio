@@ -26,11 +26,9 @@
   "repository": "github:jgarber623/RadioRadio",
   "scripts": {
     "build": "rollup --config",
-    "pretest": "npm run build",
-    "start": "rollup --config --watch",
-    "test": "npm-run-all test:*",
-    "test:lint": "eslint .",
-    "test:specs": "jasmine"
+    "lint": "eslint .",
+    "start": "npm run build -- --watch",
+    "test": "jasmine"
   },
   "devDependencies": {
     "eslint": "^8.1.0",
