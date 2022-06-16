@@ -25,7 +25,7 @@
   },
   "repository": "github:jgarber623/RadioRadio",
   "scripts": {
-    "build": "rollup --config",
+    "build": "rollup --config --input src/radioradio.js --name RadioRadio",
     "lint": "eslint .",
     "start": "npm run build -- --watch",
     "test": "jasmine"
