@@ -14,14 +14,6 @@
 - Dependency-free
 - AMD/Node module support
 
-RadioRadio is also really tiny:
-
-| Format                 | File Size   | Minified Size | Gzipped Size |
-|:-----------------------|:------------|:--------------|:-------------|
-| Uncompressed (module)  | 1,212 bytes | 829 bytes     | 507 bytes    |
-| Uncompressed (browser) | 1,685 bytes | 956 bytes     | 586 bytes    |
-| Minified (browser)     | 958 bytes   | 956 bytes     | 586 bytes    |
-
 ## Getting RadioRadio
 
 You've got a couple options for adding RadioRadio to your project:
