@@ -1,4 +1,4 @@
-let topics = {};
+const topics = {};
 
 const topicIsValid = topic => {
   return typeof topic === 'string' && topic.match(/^\w+(\.\w+)*(\.\*)?$/);
