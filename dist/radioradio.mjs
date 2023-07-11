@@ -1,5 +1,5 @@
 /*!
- *  RadioRadio v1.0.1
+ *  RadioRadio v1.0.2
  *
  *  A very basic JavaScript PubSub library.
  *
@@ -9,7 +9,7 @@
  *
  *  RadioRadio may be freely distributed under the MIT license.
  */
-let topics = {};
+const topics = {};
 
 const topicIsValid = topic => typeof topic === "string" && topic.match(/^\w+(\.\w+)*(\.\*)?$/);
 

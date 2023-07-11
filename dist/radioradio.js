@@ -1,5 +1,5 @@
 /*!
- *  RadioRadio v1.0.1
+ *  RadioRadio v1.0.2
  *
  *  A very basic JavaScript PubSub library.
  *
@@ -14,7 +14,7 @@
   factory(global.RadioRadio = {}));
 })(this, (function(exports) {
   "use strict";
-  let topics = {};
+  const topics = {};
   const topicIsValid = topic => typeof topic === "string" && topic.match(/^\w+(\.\w+)*(\.\*)?$/);
   const setPublishableQueue = topic => {
     const topicRegExp = new RegExp(`^${topic}(\\.\\w+)*$`);
@@ -41,7 +41,4 @@
   exports.publish = publish;
   exports.subscribe = subscribe;
   exports.unsubscribe = unsubscribe;
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
 }));
