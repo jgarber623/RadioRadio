@@ -15,11 +15,16 @@
     "url": "https://sixtwothree.org"
   },
   "files": [
-    "dist"
+    "dist/*",
+    "example/*",
+    "src/*"
   ],
-  "main": "dist/radioradio.js",
-  "browser": "dist/radioradio.min.js",
-  "module": "dist/radioradio.mjs",
+  "type": "module",
+  "exports": {
+    "import": "./dist/radioradio.mjs",
+    "require": "./dist/radioradio.cjs"
+  },
+  "browser": "./dist/radioradio.js",
   "directories": {
     "example": "example"
   },
