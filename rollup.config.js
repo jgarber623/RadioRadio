@@ -4,7 +4,7 @@ import terser from '@rollup/plugin-terser';
 
 const pkg = JSON.parse(readFileSync('./package.json'));
 
-const input = './src/radioradio.mjs';
+const input = './src/radioradio.js';
 const name = 'RadioRadio';
 
 const banner = `/*!
