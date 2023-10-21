@@ -2,21 +2,21 @@ import { readFileSync } from 'node:fs';
 
 import terser from '@rollup/plugin-terser';
 
-const pkg = JSON.parse(readFileSync('./package.json'));
+const package_ = JSON.parse(readFileSync('./package.json'));
 
 const input = './src/radioradio.js';
 const name = 'RadioRadio';
 
-const banner = `/*!
- *  ${name} v${pkg.version}
+const banner = `/**
+ * @name ${name}
+ * @version ${package_.version}
  *
- *  ${pkg.description}
+ * @file ${package_.description}
  *
- *  Source code available at: ${pkg.homepage}
+ * {@link ${package_.homepage}}
  *
- *  (c) 2016-present ${pkg.author.name} (${pkg.author.url})
- *
- *  ${name} may be freely distributed under the ${pkg.license} license.
+ * @copyright 2016-${new Date().getFullYear()} ${package_.author.name} (${package_.author.url})
+ * @license ${package_.license}
  */
 `;
 
@@ -34,7 +34,7 @@ export default [
     input,
     output: {
       banner,
-      file: pkg.module,
+      file: package_.exports.import,
       format: 'es'
     },
     plugins: [terser(terserConfig)]
@@ -43,9 +43,8 @@ export default [
     input,
     output: {
       banner,
-      file: pkg.main,
-      format: 'umd',
-      name
+      file: package_.exports.require,
+      format: 'cjs'
     },
     plugins: [terser(terserConfig)]
   },
@@ -53,8 +52,8 @@ export default [
     input,
     output: {
       banner,
-      file: pkg.browser,
-      format: 'umd',
+      file: package_.browser,
+      format: 'iife',
       name
     },
     plugins: [terser()]
