@@ -2,6 +2,7 @@
 
 ## 2.0.0 (2023-10-21)
 
+- aa59814 Set engines and publish config
 - 3034471 Address linting errors
 - bca99a2 Address linting issues
 - de1a9be Migrate test suite to AVA
