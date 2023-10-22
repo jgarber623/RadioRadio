@@ -4,7 +4,6 @@ import * as RadioRadio from '../src/radioradio.js';
 
 const mockData = { alpha: 'beta' };
 const mockSubscriber = ({ alpha }) => alpha;
-const mockTopics = ['foo', 'foo.*', 'foo.bar', 'foo.bar.biz'];
 
 test('should not subscribe to a topic when topic is null', t => {
   t.false(RadioRadio.subscribe(null, mockSubscriber));
@@ -57,7 +56,7 @@ test('should not publish to a topic when topic is null', t => {
 });
 
 test('should not publish to a topic when topic is undefined', t => {
-  t.false(RadioRadio.publish(undefined))
+  t.false(RadioRadio.publish());
 });
 
 test('should publish to a topic', t => {
