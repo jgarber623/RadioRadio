@@ -1,6 +1,6 @@
 {
   "name": "@jgarber/radioradio",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A very basic JavaScript PubSub library.",
   "keywords": [
     "javascript",
@@ -15,26 +15,37 @@
     "url": "https://sixtwothree.org"
   },
   "files": [
-    "dist"
+    "dist/*",
+    "example/*",
+    "src/*"
   ],
-  "main": "dist/radioradio.js",
-  "browser": "dist/radioradio.min.js",
-  "module": "dist/radioradio.mjs",
+  "type": "module",
+  "exports": {
+    "import": "./dist/radioradio.mjs",
+    "require": "./dist/radioradio.cjs"
+  },
+  "browser": "./dist/radioradio.js",
   "directories": {
     "example": "example"
   },
   "repository": "github:jgarber623/RadioRadio",
   "scripts": {
     "build": "rollup --config",
+    "clean": "rm -rf coverage dist",
     "lint": "eslint .",
-    "start": "npm run build -- --watch",
-    "test": "jasmine-browser-runner runSpecs"
+    "prebuild": "npm run clean",
+    "start": "concurrently --kill-others-on-fail --prefix-colors yellow,blue 'npm:start:*'",
+    "start:build": "npm run build -- --watch",
+    "start:serve": "http-server .",
+    "test": "c8 ava"
   },
   "devDependencies": {
-    "@jgarber/eslint-config": "^1.1.1",
-    "@rollup/plugin-terser": "^0.4.3",
-    "jasmine-browser-runner": "^2.1.0",
-    "jasmine-core": "^5.1.0",
-    "rollup": "^3.27.0"
+    "@jgarber/eslint-config": "^3.0.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "ava": "^5.3.1",
+    "c8": "^8.0.1",
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1",
+    "rollup": "^4.1.4"
   }
 }

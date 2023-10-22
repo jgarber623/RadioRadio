@@ -5,19 +5,18 @@
 [![npm](https://img.shields.io/npm/v/@jgarber/radioradio.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
 [![Downloads](https://img.shields.io/npm/dt/@jgarber/radioradio.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
 [![Build](https://img.shields.io/github/actions/workflow/status/jgarber623/RadioRadio/ci.yml?branch=main&logo=github&style=for-the-badge)](https://github.com/jgarber623/RadioRadio/actions/workflows/ci.yml)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/jgarber623/RadioRadio.svg?logo=code-climate&style=for-the-badge)](https://codeclimate.com/github/jgarber623/RadioRadio)
 
 ### Key Features
 
 - Supports namespaced events (e.g. `foo.bar`)
 - Dependency-free
-- AMD/Node module support
+- JavaScript module (ESM), CommonJS, and browser global (`window.RadioRadio`) support
 
 ## Getting RadioRadio
 
 You've got a couple options for adding RadioRadio to your project:
 
-- [Download a tagged version](https://github.com/jgarber623/RadioRadio/tags) from GitHub and do it yourself _(old school)_.
+- [Download a release](https://github.com/jgarber623/RadioRadio/releases) from GitHub and do it yourself _(old school)_.
 - Install using [npm](https://www.npmjs.com/package/@jgarber/radioradio): `npm install @jgarber/radioradio --save`
 - Install using [Yarn](https://yarnpkg.com/en/package/@jgarber/radioradio): `yarn add @jgarber/radioradio`
 
@@ -108,14 +107,7 @@ For a full-featured RadioRadio demonstration, check out [the included example fi
 
 ## Browser Support
 
-RadioRadio works in modern browsers. The library makes use of several new(ish) JavaScript methods, including:
-
-- Arrow function expressions ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions))
-- Template literals ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals))
-- `Object.keys()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys))
-- `Array.prototype.forEach()` ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach))
-
-RadioRadio, in an effort to remain as lightweight and dependency-free as possible, leaves it up to you to choose whether or not to polyfill features for older browsers.
+**RadioRadio works in modern browsers.** The library makes use of several new(ish) JavaScript methods and, in an effort to remain as lightweight and dependency-free as possible, leaves it up to you to choose whether or not to polyfill features for older browsers.
 
 ## Acknowledgments
 
