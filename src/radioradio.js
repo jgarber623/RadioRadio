@@ -7,7 +7,7 @@ const topicIsValid = topic => {
 const setPublishableQueue = topic => {
   const topicRegExp = new RegExp(`^${topic}(\\.\\w+)*$`);
   const wildcardRegExp = /\.\w+$/;
-  const wildcardTopic = topic.match(wildcardRegExp) ? topic.replace(wildcardRegExp, '.*') : false;
+  const wildcardTopic = wildcardRegExp.test(topic) ? topic.replace(wildcardRegExp, '.*') : false;
 
   return Object.keys(topics).filter(key => {
     return key === wildcardTopic || key.match(topicRegExp);
@@ -17,9 +17,11 @@ const setPublishableQueue = topic => {
 export function publish(topic, data) {
   const queue = topicIsValid(topic) ? setPublishableQueue(topic) : [];
 
-  queue.forEach(key => topics[key](data));
+  for (const key of queue) {
+    topics[key](data);
+  }
 
-  return queue.length ? queue : false;
+  return queue.length > 0 ? queue : false;
 }
 
 export function subscribe(topic, subscriber) {
