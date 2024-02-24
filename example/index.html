@@ -2,10 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>RadioRadio: Example</title>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
@@ -49,37 +48,31 @@
   </ul>
 
   <script type="module">
-    import * as RadioRadio from '../dist/radioradio.mjs';
+    import * as RadioRadio from "../src/radioradio.js";
 
-    const $title = document.querySelector('h2 span');
-    const $buttons = document.querySelectorAll('button');
-    const $listItems = document.querySelectorAll('#list li');
+    const title = document.querySelector("h2 span");
+    const buttons = document.querySelectorAll("button");
+    const listItems = document.querySelectorAll("#list li");
 
-    const handleClick = event => {
-      event.preventDefault();
-
-      RadioRadio.publish('update', {
-        show: event.currentTarget.getAttribute('data-show')
+    const handleClick = (event) => {
+      RadioRadio.publish("update", {
+        show: event.currentTarget.getAttribute("data-show"),
       });
     };
 
-    $buttons.forEach($button => {
-      $button.addEventListener('click', handleClick);
-    });
+    buttons.forEach(button => button.addEventListener("click", handleClick));
 
-    RadioRadio.subscribe('update.title', ({ show }) => {
-      $listItems.forEach($listItem => {
-        if (show === 'all' || $listItem.classList.contains(show)) {
-          $listItem.removeAttribute('aria-hidden');
+    RadioRadio.subscribe("update.title", ({ show }) => {
+      for (const listItem of listItems) {
+        if (show === "all" || listItem.classList.contains(show)) {
+          listItem.removeAttribute("aria-hidden");
         } else {
-          $listItem.setAttribute('aria-hidden', true);
+          listItem.setAttribute("aria-hidden", true);
         }
-      });
+      }
     });
 
-    RadioRadio.subscribe('update.list', ({ show }) => {
-      $title.innerHTML = show;
-    });
+    RadioRadio.subscribe("update.list", ({ show }) => title.innerHTML = show);
   </script>
 
 </body>
