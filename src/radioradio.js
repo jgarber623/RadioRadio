@@ -1,15 +1,15 @@
 const topics = {};
 
-const topicIsValid = topic => {
-  return typeof topic === 'string' && topic.match(/^\w+(\.\w+)*(\.\*)?$/);
+const topicIsValid = (topic) => {
+  return typeof topic === "string" && topic.match(/^\w+(\.\w+)*(\.\*)?$/);
 };
 
-const setPublishableQueue = topic => {
+const setPublishableQueue = (topic) => {
   const topicRegExp = new RegExp(`^${topic}(\\.\\w+)*$`);
   const wildcardRegExp = /\.\w+$/;
-  const wildcardTopic = wildcardRegExp.test(topic) ? topic.replace(wildcardRegExp, '.*') : false;
+  const wildcardTopic = wildcardRegExp.test(topic) ? topic.replace(wildcardRegExp, ".*") : false;
 
-  return Object.keys(topics).filter(key => {
+  return Object.keys(topics).filter((key) => {
     return key === wildcardTopic || key.match(topicRegExp);
   });
 };
@@ -25,7 +25,7 @@ export function publish(topic, data) {
 }
 
 export function subscribe(topic, subscriber) {
-  if (topicIsValid(topic) && typeof subscriber === 'function') {
+  if (topicIsValid(topic) && typeof subscriber === "function") {
     topics[topic] = subscriber;
 
     return topic;
