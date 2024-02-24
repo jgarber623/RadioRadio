@@ -1,4 +1,5 @@
-import test from 'ava';
+import assert from 'node:assert';
+import test from 'node:test';
 
 import * as RadioRadio from '../src/radioradio.js';
 
@@ -6,63 +7,63 @@ const mockData = { alpha: 'beta' };
 const mockSubscriber = ({ alpha }) => alpha;
 
 test('should not subscribe to a topic when topic is null', t => {
-  t.false(RadioRadio.subscribe(null, mockSubscriber));
+  assert.strictEqual(RadioRadio.subscribe(null, mockSubscriber), false);
 });
 
 test('should not subscribe to a topic when topic is undefined', t => {
-  t.false(RadioRadio.subscribe(undefined, mockSubscriber));
+  assert.strictEqual(RadioRadio.subscribe(undefined, mockSubscriber), false);
 });
 
 test('should not subscribe to a topic when topic is an empty string', t => {
-  t.false(RadioRadio.subscribe('', mockSubscriber));
+  assert.strictEqual(RadioRadio.subscribe('', mockSubscriber), false);
 });
 
 test('should not subscribe to a topic when topic contains invalid characters', t => {
-  t.false(RadioRadio.subscribe('!', mockSubscriber));
+  assert.strictEqual(RadioRadio.subscribe('!', mockSubscriber), false);
 });
 
 test('should not subscribe to a namespaced wilcard topic when namespaced wildcard topic is invalid', t => {
-  t.false(RadioRadio.subscribe('foo.*.bar', mockSubscriber));
+  assert.strictEqual(RadioRadio.subscribe('foo.*.bar', mockSubscriber), false);
 });
 
 test('should not subscribe to a topic when no subscriber is given', t => {
-  t.false(RadioRadio.subscribe('foo'));
+  assert.strictEqual(RadioRadio.subscribe('foo'), false);
 });
 
 test('should subscribe to a topic', t => {
-  t.is(RadioRadio.subscribe('foo', mockSubscriber), 'foo');
+  assert.strictEqual(RadioRadio.subscribe('foo', mockSubscriber), 'foo');
 
   RadioRadio.unsubscribe('foo');
 });
 
 test('should subscribe to a namespaced topic', t => {
-  t.is(RadioRadio.subscribe('foo.bar', mockSubscriber), 'foo.bar');
+  assert.strictEqual(RadioRadio.subscribe('foo.bar', mockSubscriber), 'foo.bar');
 
   RadioRadio.unsubscribe('foo.bar');
 });
 
 test('should subscribe to a namespaced wildcard topic', t => {
-  t.is(RadioRadio.subscribe('foo.*', mockSubscriber), 'foo.*');
+  assert.strictEqual(RadioRadio.subscribe('foo.*', mockSubscriber), 'foo.*');
 
   RadioRadio.unsubscribe('foo.*');
 });
 
 test('should not publish to a topic when topic is not subscribed', t => {
-  t.false(RadioRadio.publish('foo', mockData));
+  assert.strictEqual(RadioRadio.publish('foo', mockData), false);
 });
 
 test('should not publish to a topic when topic is null', t => {
-  t.false(RadioRadio.publish(null));
+  assert.strictEqual(RadioRadio.publish(null), false);
 });
 
 test('should not publish to a topic when topic is undefined', t => {
-  t.false(RadioRadio.publish());
+  assert.strictEqual(RadioRadio.publish(), false);
 });
 
 test('should publish to a topic', t => {
   RadioRadio.subscribe('foo', mockSubscriber);
 
-  t.deepEqual(RadioRadio.publish('foo', mockData), ['foo']);
+  assert.deepEqual(RadioRadio.publish('foo', mockData), ['foo']);
 
   RadioRadio.unsubscribe('foo');
 });
@@ -70,7 +71,7 @@ test('should publish to a topic', t => {
 test('should publish to a namespaced topic', t => {
   RadioRadio.subscribe('foo.bar', mockSubscriber);
 
-  t.deepEqual(RadioRadio.publish('foo.bar', mockData), ['foo.bar']);
+  assert.deepEqual(RadioRadio.publish('foo.bar', mockData), ['foo.bar']);
 
   RadioRadio.unsubscribe('foo.bar');
 });
@@ -78,7 +79,7 @@ test('should publish to a namespaced topic', t => {
 test('should publish to a namespaced wildcard topic', t => {
   RadioRadio.subscribe('foo.*', mockSubscriber);
 
-  t.deepEqual(RadioRadio.publish('foo.*', mockData), ['foo.*']);
+  assert.deepEqual(RadioRadio.publish('foo.*', mockData), ['foo.*']);
 
   RadioRadio.unsubscribe('foo.*');
 });
@@ -90,7 +91,7 @@ test('should publish to all topics within a namespace when top-level topic is pu
     RadioRadio.subscribe(topic, mockSubscriber);
   }
 
-  t.deepEqual(RadioRadio.publish('foo', mockData), topics);
+  assert.deepEqual(RadioRadio.publish('foo', mockData), topics);
 
   for (const topic of topics) {
     RadioRadio.unsubscribe(topic);
@@ -104,7 +105,7 @@ test('should publish to a namespaced wildcard topic when an adjacent namespaced 
     RadioRadio.subscribe(topic, mockSubscriber);
   }
 
-  t.deepEqual(RadioRadio.publish('foo.bar', mockData), topics);
+  assert.deepEqual(RadioRadio.publish('foo.bar', mockData), topics);
 
   for (const topic of topics) {
     RadioRadio.unsubscribe(topic, mockSubscriber);
@@ -114,7 +115,7 @@ test('should publish to a namespaced wildcard topic when an adjacent namespaced 
 test('should unsubscribe from a topic', t => {
   RadioRadio.subscribe('foo', mockSubscriber);
 
-  t.true(RadioRadio.unsubscribe('foo'));
+  assert.strictEqual(RadioRadio.unsubscribe('foo'), true);
 
   RadioRadio.unsubscribe('foo');
 });
