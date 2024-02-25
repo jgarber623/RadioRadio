@@ -57,29 +57,29 @@ RadioRadio.publish(topic, data);
 The topic to which you wish to publish. When using namespaced topics (e.g. `foo.bar`), you may publish to a single topic:
 
 ```js
-RadioRadio.publish('foo.bar', data);
+RadioRadio.publish("foo.bar", data);
 ```
 
 …or, to a topic and any topics within its namespace:
 
 ```js
-RadioRadio.publish('foo', data);
+RadioRadio.publish("foo", data);
 ```
 
 Publishing to the namespace `foo` will publish to `foo` and _all_ topics namespaced to `foo` (e.g. `foo.bar`, `foo.biz`, `foo.baz`). As mentioned above in [Subscribing](#subscribing), topics may be deeply nested (e.g. `foo.bar.biz`) which will affect publishing to namespaces:
 
 ```js
-RadioRadio.publish('foo', data);     // publishes to `foo`, `foo.bar`, `foo.bar.biz`
-RadioRadio.publish('foo.bar', data); // publishes to `foo.bar`, `foo.bar.biz`
+RadioRadio.publish("foo", data);     // publishes to `foo`, `foo.bar`, `foo.bar.biz`
+RadioRadio.publish("foo.bar", data); // publishes to `foo.bar`, `foo.bar.biz`
 ```
 
 Wildcard topics within a namespace (e.g. `foo.*`) will be published alongside adjacent (e.g. `foo.bar`, `foo.biz`) published topics:
 
 ```js
-RadioRadio.subscribe('foo.bar', subscriber);
-RadioRadio.subscribe('foo.*', wildcardSubscriber);
+RadioRadio.subscribe("foo.bar", subscriber);
+RadioRadio.subscribe("foo.*", wildcardSubscriber);
 
-RadioRadio.publish('foo.bar', data); // publishes to `foo.bar` and `foo.*`
+RadioRadio.publish("foo.bar", data); // publishes to `foo.bar` and `foo.*`
 ```
 
 Note that topics are published in the order in which they were originally subscribed.
