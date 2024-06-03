@@ -40,7 +40,7 @@
     "test": "NODE_V8_COVERAGE=coverage node --experimental-test-coverage --test"
   },
   "devDependencies": {
-    "@jgarber/eslint-config": "^4.3.0",
+    "@jgarber/eslint-config": "^5.0.0",
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.12.0"
   },
