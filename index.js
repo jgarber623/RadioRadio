@@ -1,3 +1,15 @@
+/*!
+ * @name RadioRadio
+ * @version 3.0.0
+ *
+ * @file A very basic JavaScript PubSub library.
+ *
+ * {@link https://github.com/jgarber623/RadioRadio
+ *
+ * @copyright 2016 Jason Garber (https://sixtwothree.org)
+ * @license MIT
+ */
+
 const topics = {};
 
 const topicIsValid = (topic) => {
@@ -14,6 +26,11 @@ const setPublishableQueue = (topic) => {
   });
 };
 
+/**
+ * @param {string} topic
+ * @param {object} data
+ * @returns {Array|false}
+ */
 export function publish(topic, data) {
   const queue = topicIsValid(topic) ? setPublishableQueue(topic) : [];
 
@@ -24,6 +41,11 @@ export function publish(topic, data) {
   return queue.length > 0 ? queue : false;
 }
 
+/**
+ * @param {string} topic
+ * @param {Function} subscriber
+ * @returns {string|false}
+ */
 export function subscribe(topic, subscriber) {
   if (topicIsValid(topic) && typeof subscriber === "function") {
     topics[topic] = subscriber;
@@ -34,6 +56,10 @@ export function subscribe(topic, subscriber) {
   }
 }
 
+/**
+ * @param {string} topic
+ * @returns {true}
+ */
 export function unsubscribe(topic) {
   return delete topics[topic];
 }

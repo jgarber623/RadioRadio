@@ -6,11 +6,14 @@
 [![Downloads](https://img.shields.io/npm/dt/@jgarber/radioradio.svg?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/@jgarber/radioradio)
 [![Build](https://img.shields.io/github/actions/workflow/status/jgarber623/RadioRadio/ci.yml?branch=main&logo=github&style=for-the-badge)](https://github.com/jgarber623/RadioRadio/actions/workflows/ci.yml)
 
+> [!NOTE]
+> RadioRadio is feature complete and will only be updated to address bugs or security issues.
+
 ### Key Features
 
 - Supports namespaced events (e.g. `foo.bar`)
 - Dependency-free
-- JavaScript module (ESM), CommonJS, and browser global (`window.RadioRadio`) support
+- JavaScript module (ESM)
 
 ## Getting RadioRadio
 

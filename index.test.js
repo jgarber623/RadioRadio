@@ -1,7 +1,7 @@
 import assert from "node:assert";
 import test from "node:test";
 
-import * as RadioRadio from "../src/radioradio.js";
+import * as RadioRadio from "./index.js";
 
 const mockData = { alpha: "beta" };
 const mockSubscriber = ({ alpha }) => alpha;

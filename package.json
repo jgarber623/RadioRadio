@@ -1,6 +1,6 @@
 {
   "name": "@jgarber/radioradio",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "A very basic JavaScript PubSub library.",
   "keywords": [
     "javascript",
@@ -9,43 +9,22 @@
   "homepage": "https://github.com/jgarber623/RadioRadio",
   "bugs": "https://github.com/jgarber623/RadioRadio/issues",
   "license": "MIT",
-  "author": {
-    "name": "Jason Garber",
-    "email": "jason@sixtwothree.org",
-    "url": "https://sixtwothree.org"
-  },
+  "author": "Jason Garber <jason@sixtwothree.org> (https://sixtwothree.org)",
   "files": [
-    "dist/*",
     "example/*",
-    "src/*"
+    "index.js"
   ],
   "type": "module",
-  "exports": {
-    "import": "./dist/radioradio.mjs",
-    "require": "./dist/radioradio.cjs"
-  },
-  "browser": "./dist/radioradio.js",
   "directories": {
     "example": "example"
   },
   "repository": "github:jgarber623/RadioRadio",
   "scripts": {
-    "build": "rollup --config",
-    "clean": "rm -rf coverage dist",
-    "lint": "eslint .",
-    "prebuild": "npm run clean",
-    "start": "npx concurrently --kill-others-on-fail --prefix-colors yellow,blue 'npm:start:*'",
-    "start:build": "npm run build -- --watch",
-    "start:serve": "npx http-server .",
+    "start": "npx http-server .",
     "test": "NODE_V8_COVERAGE=coverage node --experimental-test-coverage --test"
   },
-  "devDependencies": {
-    "@jgarber/eslint-config": "^5.0.0",
-    "@rollup/plugin-terser": "^0.4.4",
-    "rollup": "^4.12.0"
-  },
   "engines": {
-    "node": ">=18"
+    "node": ">=18.7"
   },
   "publishConfig": {
     "access": "public"
