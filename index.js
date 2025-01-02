@@ -4,7 +4,7 @@
  *
  * @file A very basic JavaScript PubSub library.
  *
- * {@link https://github.com/jgarber623/RadioRadio
+ * {@link https://github.com/jgarber623/RadioRadio}
  *
  * @copyright 2016 Jason Garber (https://sixtwothree.org)
  * @license MIT
