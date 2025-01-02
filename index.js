@@ -1,15 +1,3 @@
-/*!
- * @name RadioRadio
- * @version 3.0.0
- *
- * @file A very basic JavaScript PubSub library.
- *
- * {@link https://github.com/jgarber623/RadioRadio}
- *
- * @copyright 2016 Jason Garber (https://sixtwothree.org)
- * @license MIT
- */
-
 const topics = {};
 
 const topicIsValid = (topic) => {
