@@ -1,6 +1,6 @@
 {
   "name": "@jgarber/radioradio",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "A very basic JavaScript PubSub library.",
   "keywords": [
     "javascript",
@@ -19,7 +19,7 @@
   "directories": {
     "example": "example"
   },
-  "repository": "github:jgarber623/RadioRadio",
+  "repository": "https://github.com/jgarber623/RadioRadio",
   "scripts": {
     "start": "npx http-server .",
     "test": "NODE_V8_COVERAGE=coverage node --experimental-test-coverage --test"
@@ -28,6 +28,7 @@
     "node": ">=18.7"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   }
 }
