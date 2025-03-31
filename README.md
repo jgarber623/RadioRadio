@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> This project has moved to [codeberg.org/jgarber/RadioRadio](https://codeberg.org/jgarber/RadioRadio).
+
 # RadioRadio
 
 **A very small, lightweight, dependency-free JavaScript [PubSub](https://en.wikipedia.org/wiki/Publish–subscribe_pattern) library.**
